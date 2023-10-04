@@ -1,0 +1,36 @@
+class User:
+    def __init__(self, userid, username):
+        self.id = userid
+        self.name = username
+        self.followers = 0
+        self.following = 0
+
+    def follow(self, user):
+        user.followers +=1
+        self.following +=1
+
+
+user1 = User("90011", "Jose")
+user2 = User("90012", "Jack")
+
+
+continue_following = True
+
+
+while continue_following:
+
+    choice = input("Whom do you want to follow? user1 or user2: ")
+    if choice == 'exit':
+        continue_following = False
+    elif choice == 'report':
+        print("user1 account")
+        print(f"followers: {user1.followers}")
+        print(f"following: {user1.following}")
+
+        print("user2 account")
+        print(f"followers: {user2.followers}")
+        print(f"following: {user2.following}")
+    elif choice == 'user1':
+        user2.follow(user1)
+    elif choice == 'user2':
+        user1.follow(user2)
